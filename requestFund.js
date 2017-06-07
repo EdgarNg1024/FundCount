@@ -9,9 +9,7 @@ var client = mysql.createConnection({
     database: 'fundcound'
 });
 
-console.log(new Date().getTime());
 client.connect();
-
 selectFundData();
 
 
@@ -46,7 +44,6 @@ function insertFundRank(fundNum, dt) {
                 //console.log('INSERT ID:',result.insertId);       
                 console.log('INSERT ID:', result);
                 console.log('#######################');
-                console.log(new Date().getTime());
             });
             // client.end();
         }
@@ -63,7 +60,7 @@ function selectFundData() {
         }
         result.forEach(function (element) {
             console.log(element.keynum);
-            insertFundRank(element.keynum, 'sixmonth');
+            insertFundRank(element.keynum, 'year');
         });
         // client.end();
     });
